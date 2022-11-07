@@ -14,7 +14,7 @@ function Navbar(props) {
     return (
         <div>
             <div style={{justifyContent:'center', width:'40vw', height:'10vh', display:'flex'}}>
-                <button onClick={handleNameChange} style={{backgroundColor:'blue'}}>{name}</button>
+                <button onClick={handleNameChange} style={{backgroundColor:'orange'}}>{name}</button>
             </div>
             <div style={{width:'100vw', height:'40vh'}}>
                 <Typography>bbbb</Typography>
