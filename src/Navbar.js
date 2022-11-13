@@ -13,15 +13,15 @@ import * as React from 'react';
   function CustomAppBar() {
       return (
         <Box style={{ width:'100vw',
-        height:'25vh'}}>
+        height:'8vh'}}>
           <AppBar position="static">
             <Toolbar style={{backgroundColor:'#00BCD4'}}>
               <img src={poza} style={{ width:'7vw'
                 ,height:'8vh'}} alt="poza" />
                 <Button style={{top:12.5, right:'40vw', position:'absolute', color:'#01579B'}} variant='contained'>PRET</Button>
                 <Button style={{top:12.5, right:'30vw', position:'absolute', color:'#01579B'}} variant='contained'>CONTACT</Button>
-                <Typography style={{top:19.5, right:'1vw', position:'absolute', color:'white'}} >
-                  Bine ati venit, Adina!
+                <Typography style={{top:19.5, right:'1vw', position:'absolute', color:'black'}} >
+                  Bine ai venit, Adina!
                 </Typography>
             </Toolbar>
           </AppBar>

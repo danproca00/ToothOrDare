@@ -3,15 +3,17 @@ import './App.css';
 import Navbar from './Navbar';
 import FirstPage from './FirstPage';
 import { useState } from "react";
-import imageBack from './imag/Background2.jpeg'
+import imageBack from './imag/Background2.jpeg';
+import Form from './Form';
 
 
 function App() {
 
   return (
-    <div style={{ backgroundImage: `url(${imageBack})`, backgroundRepeat:'no-repeat', backgroundSize:'cover' , height:'100vh',  backgroundPosition:'center'}}>
+    <div >
         <Navbar/>
         <FirstPage/>
+        {/* <Form/> */}
     </div>
    
   );
