@@ -7,7 +7,8 @@ import Stack from '@mui/material/Stack';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import ProgrPhoto from './imag/formphoto.jpeg'
+import ProgrPhoto from './imag/formphoto.jpeg';
+
 
 function Form(){
     const [value, setValue] = React.useState(dayjs('2014-08-18T21:11:54'));
@@ -45,11 +46,13 @@ function Form(){
                                 noValidate
                                 autoComplete="off"
                             >
-                                <TextField 
-                                id="filled-textarea"
-                                label="Varsta"
-                                multiline
-                                variant="filled"
+                                <TextField
+                                    id="outlined-number"
+                                    label="Varsta"
+                                    type="number"
+                                    InputLabelProps={{
+                                        shrink: true,
+                                    }}
                                 />
                             </Box>
                         </div>

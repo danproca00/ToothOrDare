@@ -8,20 +8,14 @@ import NoteAltIcon from '@mui/icons-material/NoteAlt';
 import Form from "./Form";
 import {Routes, Route, useNavigate} from 'react-router-dom';
 
-function FirstPage(){
-    // const navigate = useNavigate();
-
-    // const handleClick = () => {
-    //     // 👇️ navigate programmatically
-    //     navigate('/form');
-    //   };
-    
+function FirstPage(props){
+    const navigateFirst = useNavigate();
     return(
         <div style={{ backgroundImage: `url(${imageBack})`, backgroundRepeat:'no-repeat', backgroundSize:'cover' , height:'92vh',  backgroundPosition:'center'}}>
             <div style={{right:'3vw', position:'absolute', top:'15vh'}}>
             
                 <Button className="button"
-                variant='contained' 
+                variant='contained' onClick={() => navigateFirst("/Form")}
                 >
                     <NoteAltIcon/>
                     PROGRAMEAZA-TE ACUM!

@@ -5,15 +5,19 @@ import FirstPage from './FirstPage';
 import { useState } from "react";
 import imageBack from './imag/Background2.jpeg';
 import Form from './Form';
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
 
   return (
     <div >
         <Navbar/>
-        <FirstPage/>
-        {/* <Form/> */}
+        <Router>
+          <Routes>
+            <Route path="/" element={<FirstPage />} />
+            <Route path="/Form" element={<Form />} />
+          </Routes>
+        </Router>
     </div>
    
   );
