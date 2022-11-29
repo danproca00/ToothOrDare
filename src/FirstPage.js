@@ -6,6 +6,8 @@ import DescriptionIcon from '@mui/icons-material/Description';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import NoteAltIcon from '@mui/icons-material/NoteAlt';
 import Form from "./Form";
+import Doctor from "./Doctor";
+import Details from "./Details";
 import {Routes, Route, useNavigate} from 'react-router-dom';
 
 function FirstPage(props){
@@ -28,7 +30,7 @@ function FirstPage(props){
                         <Typography style={{fontFamily:'boldmonospace',color:'#01579B', fontSize:'3vh' }}>DOCTOR</Typography>
                     </div>
                     <div style={{width:'20vw', height:'25vh', justifyContent:'center', display:'flex'}}>
-                        <Button >
+                        <Button  onClick={() => navigateFirst("/Doctor")}>
                             <VaccinesIcon style={{width:'15vw', height:'15vh'}}/>
                         </Button>
                     </div>
@@ -42,7 +44,7 @@ function FirstPage(props){
                         <Typography style={{fontFamily:'boldmonospace',color:'#01579B', fontSize:'3vh' }}>PROGRAMARE</Typography>
                     </div>
                     <div style={{width:'20vw', height:'25vh', justifyContent:'center', display:'flex'}}>
-                        <Button >
+                        <Button  onClick={() => navigateFirst("/Details")} >
                             <DescriptionIcon style={{width:'15vw', height:'15vh'}}/>
                         </Button>
                     </div>
@@ -52,7 +54,7 @@ function FirstPage(props){
                         <Typography style={{fontFamily:'boldmonospace',color:'#01579B', fontSize:'3vh' }}>DESPRE NOI</Typography>
                     </div>
                     <div style={{width:'20vw', height:'25vh', justifyContent:'center', display:'flex'}}>
-                        <Button >
+                        <Button  onClick={() => navigateFirst("/AboutUs")}>
                             <PeopleAltIcon style={{width:'15vw', height:'13vh'}}/>
                         </Button>
                     </div>
