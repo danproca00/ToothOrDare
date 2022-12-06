@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import './Map.css';
 
+
 mapboxgl.accessToken =
   'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA';
 
@@ -18,7 +19,8 @@ const Map = () => {
       container: mapContainerRef.current,
       style: 'mapbox://styles/mapbox/streets-v11',
       center: [lng, lat],
-      zoom: zoom
+      zoom: zoom,
+      attributionControl: false
     });
 
     // Add navigation control (the +/- zoom buttons)
@@ -38,7 +40,7 @@ const Map = () => {
     <div>
       <div className='sidebarStyle'>
         <div>
-          Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
+          Longitude: {lng} | Latitude: {lat}
         </div>
       </div>
       <div className='map-container' ref={mapContainerRef} />
