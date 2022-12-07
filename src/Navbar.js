@@ -9,6 +9,7 @@ import * as React from 'react';
     import poza from './imag/poza.png';
     import NoteAltIcon from '@mui/icons-material/NoteAlt';
     import {Routes, Route, useNavigate} from 'react-router-dom';
+    import HomeIcon from '@mui/icons-material/Home';
 
 
     
@@ -21,12 +22,15 @@ import * as React from 'react';
             <Toolbar style={{backgroundColor:'#00BCD4'}}>
               <img src={poza} style={{ width:'7vw'
                 ,height:'8vh'}} alt="poza" />
-                <Button style={{top:12.5, right:'40vw', position:'absolute', color:'#01579B'}} 
+                <Button style={{backgroundColor:'#01579B', marginLeft:'2vw'}} onClick={() => navigateFirst("/")}>
+                  <HomeIcon style={{color:'white', fontFamily:'large'}}/>
+                </Button>
+                <Button style={{top:12.5, right:'40vw', position:'absolute', backgroundColor:'#01579B'}} 
                 variant='contained' onClick={() => navigateFirst("/Price")}>
                     PRET
                 </Button>
                 
-                <Button style={{top:12.5, right:'30vw', position:'absolute', color:'#01579B'}}
+                <Button style={{top:12.5, right:'30vw', position:'absolute', backgroundColor:'#01579B'}}
                 variant='contained' onClick={() => navigateFirst("/Contact")}>
                     CONTACT
                 </Button>

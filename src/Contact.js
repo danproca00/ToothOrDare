@@ -36,13 +36,19 @@ function Contact() {
                     <Typography style={{fontFamily:'Roboto',fontSize:'4vh', color:'#01579B'}}>Număr telefon: 0258-754 010</Typography>
                 </div>
                 <div style={{marginLeft:'4vw'}}>
-                    <Typography style={{fontFamily:'Roboto',fontSize:'4vh', color:'#01579B'}}>Adresa de e-mail: office@toothordare.ro</Typography>
+                    <Typography style={{fontFamily:'Roboto',fontSize:'4vh', color:'#01579B'}}>
+                        Adresa de e-mail: office@toothordare.ro
+                    </Typography>
                 </div>
                 <div style={{marginLeft:'4vw'}}>
-                    <Typography style={{fontFamily:'Roboto',fontSize:'4vh', color:'#01579B'}}>Locație: Strada Coriolan Brediceanu 2, Timișoara 300077</Typography>
+                    <Typography style={{fontFamily:'Roboto',fontSize:'4vh', color:'#01579B'}}>
+                        Locație: Strada Coriolan Brediceanu 2, Timișoara 300077
+                    </Typography>
                 </div>
                 <div style={{marginLeft:'4vw'}}>
-                    <Typography style={{fontFamily:'Roboto',fontSize:'4vh', color:'#01579B'}}>Vă așteptăm 😁</Typography>
+                    <Typography style={{fontFamily:'Roboto',fontSize:'4vh', color:'#01579B'}}>
+                        Vă așteptăm 😁
+                    </Typography>
                 </div>
             </div>
         </div>
