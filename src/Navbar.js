@@ -19,7 +19,7 @@ import * as React from 'react';
         <Box style={{ width:'100vw',
         height:'8vh'}}>
           <AppBar position="static">
-            <Toolbar style={{backgroundColor:'#00BCD4'}}>
+            <Toolbar style={{backgroundColor:'#63e5ff'}}>
               <img src={poza} style={{ width:'7vw'
                 ,height:'8vh'}} alt="poza" />
                 <Button style={{backgroundColor:'#01579B', marginLeft:'2vw'}} onClick={() => navigateFirst("/")}>

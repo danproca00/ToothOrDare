@@ -1,6 +1,6 @@
 import { Button, Typography } from "@mui/material";
 import React from "react";
-import imageBack from './imag/Background2.jpeg'
+import imageBack from './imag/altapoza.jpeg'
 import VaccinesIcon from '@mui/icons-material/Vaccines';
 import DescriptionIcon from '@mui/icons-material/Description';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
@@ -9,6 +9,7 @@ import Form from "./Form";
 import Doctor from "./Doctor";
 import Details from "./Details";
 import {Routes, Route, useNavigate} from 'react-router-dom';
+
 
 function FirstPage(props){
     const navigateFirst = useNavigate();
@@ -25,7 +26,7 @@ function FirstPage(props){
                 
             </div>
             <div style={{justifyContent:'space-between', display:'flex', flexDirection:'row'}}>
-                <div style={{backgroundColor:'#00BCD4', height:'35vh', width:'20vw',justifyContent:'space-between',position:'absolute', bottom:'3vh',marginLeft:'10vw'}}>
+                <div style={{backgroundColor:'#96ECFC', height:'35vh', width:'20vw',justifyContent:'space-between',position:'absolute', bottom:'3vh',marginLeft:'10vw', borderRadius: 4, borderStyle: 'solid', borderColor:'#01579B', borderWidth:'0.2vw'}}>
                     <div style={{justifyContent:'center', display:'flex'}}>
                         <Typography style={{fontFamily:'boldmonospace',color:'#01579B', fontSize:'3vh' }}>DOCTOR</Typography>
                     </div>
@@ -36,7 +37,7 @@ function FirstPage(props){
                     </div>
                 
                 </div>
-                <div style={{backgroundColor:'#00BCD4', height:'35vh', width:'20vw',justifyContent:'space-between',position:'absolute', bottom:'3vh', marginLeft:'40vw'}}>
+                <div style={{backgroundColor:'#96ECFC', height:'35vh', width:'20vw',justifyContent:'space-between',position:'absolute', bottom:'3vh', marginLeft:'40vw', borderRadius: 4, borderStyle: 'solid', borderColor:'#01579B',borderWidth:'0.2vw'}}>
                     <div style={{justifyContent:'center', display:'flex'}}>
                         <Typography style={{fontFamily:'boldmonospace',color:'#01579B', fontSize:'3vh' }}>DETALII</Typography>
                     </div>
@@ -49,7 +50,7 @@ function FirstPage(props){
                         </Button>
                     </div>
                 </div>
-                <div style={{backgroundColor:'#00BCD4', height:'35vh', width:'20vw',justifyContent:'space-between',position:'absolute', bottom:'3vh', marginLeft:'70vw'}}>
+                <div style={{backgroundColor:'#96ECFC', height:'35vh', width:'20vw',justifyContent:'space-between',position:'absolute', bottom:'3vh', marginLeft:'70vw', borderRadius: 4,  borderStyle: 'solid', borderColor:'#01579B',borderWidth:'0.2vw'}}>
                     <div style={{justifyContent:'center', display:'flex'}}>
                         <Typography style={{fontFamily:'boldmonospace',color:'#01579B', fontSize:'3vh' }}>DESPRE NOI</Typography>
                     </div>

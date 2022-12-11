@@ -13,7 +13,7 @@ import {Marker} from 'react-map-gl';
 
 function Contact() {
     return(
-        <div style={{ backgroundImage: `url(${imageBack})`, backgroundRepeat:'no-repeat', backgroundSize:'cover' , height:'92vh',  backgroundPosition:'center', width:'100vw'}}>
+        <div style={{ backgroundColor:'#8aecff', backgroundRepeat:'no-repeat', backgroundSize:'cover' , height:'92vh',  backgroundPosition:'center', width:'100vw'}}>
             <div style={{width:100, height:'40vh'}}>
                 <Map >
                     <Marker> 
