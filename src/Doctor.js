@@ -12,7 +12,7 @@ import BackgroundFirstPage from './imag/BackgroundFirstPage.png'
 
 function Doctor() {
     return(
-        <div style={{ backgroundImage: `url(${BackgroundFirstPage})`, backgroundRepeat:'no-repeat', backgroundSize:'cover' , height:'100vh',  backgroundPosition:'center'}}>
+        <div style={{ backgroundImage: `url(${BackgroundFirstPage})`, backgroundRepeat:'no-repeat', backgroundSize:'cover' , height:'90vh',  backgroundPosition:'center'}}>
             <div style={{width:'100vw', height:'100vh'}}>
                 <div style={{width:'97vw', height:'50vh', display:'flex', flexDirection:'row'}}>
                     <div style={{backgroundColor:'white', height:'40vh', width:'30vw',justifyContent:'space-between', marginLeft:'5vw', marginTop:'5vh', borderRadius: 4, borderStyle: 'solid', borderColor:'#01579B'}}>
