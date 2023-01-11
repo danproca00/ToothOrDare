@@ -1,4 +1,5 @@
 import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 import Navbar from './Navbar';
 import FirstPage from './FirstPage';
@@ -10,9 +11,12 @@ import Price from './Price'
 import Doctor from './Doctor';
 import Details from './Details';
 import AboutUs from './AboutUs';
+import LogIn from './LogIn';
+import SignUp from './SignUp';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { LineAxisOutlined } from '@mui/icons-material';
 import axios from 'axios';
+
 function App() {
 
   // useEffect(() => {
@@ -21,11 +25,14 @@ function App() {
   //   })
   // }, [])
 
+
   return (
     <div >
-        <Navbar/>
+        
           <Routes>
-            <Route path="/" element={<FirstPage />} />
+            <Route path="/" element={<LogIn/>}/>
+            <Route path="/SignUp" element={<SignUp />} />
+            <Route path="/First" element={<FirstPage />} />
             <Route path="/Form" element={<Form />} />
             <Route path="/Contact" element={<Contact />}/>
             <Route path="/Price" element={<Price />}/>

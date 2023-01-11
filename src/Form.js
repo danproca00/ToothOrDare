@@ -12,12 +12,13 @@ import Button from "@mui/material/Button";
 import HomeIcon from '@mui/icons-material/Home';
 import Grid from "@mui/material/Grid";
 import axios from "axios";
-
+import Navbar from './Navbar';
 import Autocomplete from '@mui/material/Autocomplete';
 import { Grade } from "@mui/icons-material";
 
 
-function Form(){
+function Form(props){
+    const[total,setTotal]=React.useState('');
     const[namechange, setNameChange] = React.useState('');
     const[date,setDate]=React.useState('');
     const[email, setEmail]= React.useState('');
@@ -26,7 +27,7 @@ function Form(){
     const current = new Date();
     const todaydate = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
     const [dateWithNoInitialValue,setDateWithNoInitialValue ]= React.useState(null);
-    const [total, setTotal] = React.useState([]);
+    
     // const [value, setValue] = React.useState(dayjs(todaydate));
     const handleProced = (e, value) => {
         console.log(value)
@@ -64,16 +65,17 @@ const specializare =[
     params.append('proced', procedura)
     params.append('data', document.getElementById('datetime').value)
     params.append('doctor',doctor)
-    axios.post("programare.php", params).then((response) => {
+    axios.post("http://localhost:8080/php/programare.php", params).then((response) => {
         setTotal(response.data)
-      
+        console.log(response.data)
     })
   }
   
     return(
-        <div style={{height:'92vh',width:'100vw',backgroundImage: `url(${ProgrPhoto})`, backgroundRepeat:'no-repeat', backgroundSize:'cover'}}>
+        <div style={{height:'100vh',width:'100vw',backgroundImage: `url(${ProgrPhoto})`, backgroundRepeat:'no-repeat', backgroundSize:'cover'}}>
+            <Navbar/>
             <div style={{justifyContent:'center',display:'flex',}}>
-                <div style={{height:'90vh',width:'40vw',backgroundColor:'white', marginTop:'1vh'}}>
+                <div style={{height:'90vh',width:'40vw',backgroundColor:'white', marginTop:'1.5vh'}}>
                     <div style={{justifyContent:'center', display:'flex', color:'black', backgroundColor:'#80deea'}}>
                         <Typography style={{fontFamily:'Comic Sans Bold', fontSize:20}}>PROGRAMARE</Typography>
                     </div>
@@ -83,7 +85,7 @@ const specializare =[
                                 <Box
                                     component="form"
                                     style={{height:'20vh'}}
-                                    noValidate
+                                    Validate
                                     autoComplete="off"
                                 >
                                     <TextField 
@@ -100,7 +102,7 @@ const specializare =[
                                 <Box
                                     component="form"
                                     style={{height:'20vh'}}
-                                    noValidate
+                                    Validate
                                     autoComplete="off"
                                 >
                                     <TextField
@@ -139,8 +141,8 @@ const specializare =[
                                 </Box>
                             </div>
                             <div style={{justifyContent:'center', display:'flex', marginTop:50}}>
-                            <Grid style={{width:'11vw'}}>
-                                <Grid item xs={70}>
+                            <Grid style={{width:'13vw', height:'20vh'}}>
+                                <Grid item xs={70} sm={40}>
                                     <Autocomplete
                                     multiple
                                     limitTags={2}
@@ -161,11 +163,11 @@ const specializare =[
                         <div style={{display:'flex', justifyContent:'space-between',width:'28vw', height:'10vh'}}>
                             <div style={{justifyContent:'center', display:'flex', marginTop:50}}>
                                 <LocalizationProvider dateAdapter={AdapterDayjs} >
-                                    <Stack  >
+                                    <Stack style={{width:'12vw'}} >
                                         <DateTimePicker
-                                            style={{ustifyContent:'center', display:'flex'}}
+                                            style={{justifyContent:'center', display:'flex'}}
                                             sx={{width:197}}
-                                            inputFormat="YYYY-MM-DD HH:mm"
+                                            inputFormat="DD-MM-YYYY HH:mm"
                                             ampm={false}
                                             label="Data si ora"
                                             value={dateWithNoInitialValue}
@@ -178,8 +180,8 @@ const specializare =[
                                 
                             </div>
                             <div style={{justifyContent:'center', display:'flex', marginTop:50}}>
-                            <Grid style={{width:'11vw'}}>
-                                <Grid style={{width:'11vw'}}>
+                            <Grid style={{width:'13vw'}}>
+                                <Grid style={{width:'13.2vw'}}>
                                     <Autocomplete
                                     size="small"
                                     disableCloseOnSelect={true}

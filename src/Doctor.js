@@ -5,17 +5,17 @@ import DenisaGolban from'./imag/DenisaGolban.png'
 import ClaudiuJucu from'./imag/ClaudiuJucu.png' 
 import AdelinStoica from'./imag/AdelinStoica.png'
 import BackgroundFirstPage from './imag/BackgroundFirstPage.png' 
-
-
+import Navbar from './Navbar';
 
 
 
 function Doctor() {
     return(
-        <div style={{ backgroundImage: `url(${BackgroundFirstPage})`, backgroundRepeat:'no-repeat', backgroundSize:'cover' , height:'90vh',  backgroundPosition:'center'}}>
-            <div style={{width:'100vw', height:'100vh'}}>
-                <div style={{width:'97vw', height:'50vh', display:'flex', flexDirection:'row'}}>
-                    <div style={{backgroundColor:'white', height:'40vh', width:'30vw',justifyContent:'space-between', marginLeft:'5vw', marginTop:'5vh', borderRadius: 4, borderStyle: 'solid', borderColor:'#01579B'}}>
+        <div style={{ backgroundImage: `url(${BackgroundFirstPage})`, backgroundRepeat:'no-repeat', backgroundSize:'cover' , height:'100vh',  backgroundPosition:'center'}}>
+            <Navbar/>
+            <div style={{width:'100vw', height:'92vh'}}>
+                <div style={{width:'97vw', height:'46vh', display:'flex', flexDirection:'row'}}>
+                    <div style={{backgroundColor:'white', height:'37vh', width:'30vw',justifyContent:'space-between', marginLeft:'5vw', marginTop:'5vh', borderRadius: 4, borderStyle: 'solid', borderColor:'#01579B'}}>
                         <div style={{justifyContent:'center', display:'flex'}}>
                             <img src={TatianaPopescu} alt="TatianaPopescu"/>
                         </div>
@@ -27,7 +27,7 @@ function Doctor() {
                         </div>
                     </div>
                     
-                    <div style={{backgroundColor:'white', height:'40vh', width:'30vw',justifyContent:'space-between', marginLeft:'15vw', marginTop:'5vh', borderRadius: 4,borderStyle: 'solid', borderColor:'#01579B'}}>
+                    <div style={{backgroundColor:'white', height:'37vh', width:'30vw',justifyContent:'space-between', marginLeft:'15vw', marginTop:'5vh', borderRadius: 4,borderStyle: 'solid', borderColor:'#01579B'}}>
                         <div style={{justifyContent:'center', display:'flex'}}>
                             <img src={DenisaGolban} alt="DenisaGolban"/>
                         </div>
@@ -40,8 +40,8 @@ function Doctor() {
                     </div>
 
                 </div>
-                <div style={{width:'97vw', height:'50vh', display:'flex', flexDirection:'row'}}>
-                    <div style={{backgroundColor:'white', height:'40vh', width:'30vw',justifyContent:'space-between', marginLeft:'20vw', marginTop:'1vh', borderRadius: 4,borderStyle: 'solid', borderColor:'#01579B'}}>
+                <div style={{width:'97vw', height:'46vh', display:'flex', flexDirection:'row'}}>
+                    <div style={{backgroundColor:'white', height:'37vh', width:'30vw',justifyContent:'space-between', marginLeft:'20vw', marginTop:'1vh', borderRadius: 4,borderStyle: 'solid', borderColor:'#01579B'}}>
                         <div style={{justifyContent:'center', display:'flex'}}>
                             <img src={ClaudiuJucu} alt="ClaudiuJucu"/>
                         </div>
@@ -53,7 +53,7 @@ function Doctor() {
                         </div>
                     </div>
 
-                    <div style={{backgroundColor:'white', height:'40vh', width:'30vw',justifyContent:'space-between', marginLeft:'15vw', marginTop:'1vh', borderRadius: 4,borderStyle: 'solid', borderColor:'#01579B'}}>
+                    <div style={{backgroundColor:'white', height:'37vh', width:'30vw',justifyContent:'space-between', marginLeft:'15vw', marginTop:'1vh', borderRadius: 4,borderStyle: 'solid', borderColor:'#01579B'}}>
                     <div style={{justifyContent:'center', display:'flex'}}>
                             <img src={AdelinStoica} alt="AdelinStoica"/>
                         </div>

@@ -5,6 +5,7 @@ import VaccinesIcon from '@mui/icons-material/Vaccines';
 import DescriptionIcon from '@mui/icons-material/Description';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import NoteAltIcon from '@mui/icons-material/NoteAlt';
+import Navbar from './Navbar';
 import Form from "./Form";
 import Doctor from "./Doctor";
 import Details from "./Details";
@@ -14,7 +15,9 @@ import {Routes, Route, useNavigate} from 'react-router-dom';
 function FirstPage(props){
     const navigateFirst = useNavigate();
     return(
-        <div style={{ backgroundImage: `url(${imageBack})`, backgroundRepeat:'no-repeat', backgroundSize:'cover' , height:'92vh',  backgroundPosition:'center'}}>
+        
+        <div style={{ backgroundImage: `url(${imageBack})`, backgroundRepeat:'no-repeat', backgroundSize:'cover' , height:'100vh',  backgroundPosition:'center'}}>
+            <Navbar/>
             <div style={{right:'3vw', position:'absolute', top:'15vh'}}>
             
                 <Button className="button"

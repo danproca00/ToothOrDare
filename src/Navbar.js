@@ -10,31 +10,34 @@ import * as React from 'react';
     import NoteAltIcon from '@mui/icons-material/NoteAlt';
     import {Routes, Route, useNavigate} from 'react-router-dom';
     import HomeIcon from '@mui/icons-material/Home';
+    import LogoutIcon from '@mui/icons-material/Logout';
 
 
     
   function CustomAppBar() {
-    const navigateFirst = useNavigate();
+    const navigateBar = useNavigate();
       return (
-        <Box style={{ width:'100vw',
-        height:'8vh'}}>
+        <Box style={{ width:'100vw', height:'8vh'}}>
           <AppBar position="static">
             <Toolbar style={{backgroundColor:'#63e5ff'}}>
-              <img src={poza} style={{ width:'7vw'
-                ,height:'8vh'}} alt="poza" />
-                <Button style={{backgroundColor:'#01579B', marginLeft:'2vw'}} onClick={() => navigateFirst("/")}>
+              <img src={poza} style={{ width:'7vw',height:'8vh'}} alt="poza" />
+                <Button style={{backgroundColor:'#01579B', marginLeft:'2vw', marginTop:'0.5vh'}} onClick={() => navigateBar("/First")}>
                   <HomeIcon style={{color:'white', fontFamily:'large'}}/>
                 </Button>
-                <Button style={{top:12.5, right:'40vw', position:'absolute', backgroundColor:'#01579B'}} 
-                variant='contained' onClick={() => navigateFirst("/Price")}>
+                <Button style={{ right:'40vw', position:'absolute', backgroundColor:'#01579B', marginTop:'0.5vh'}} 
+                variant='contained' onClick={() => navigateBar("/Price")}>
                     PRET
                 </Button>
-                
-                <Button style={{top:12.5, right:'30vw', position:'absolute', backgroundColor:'#01579B'}}
-                variant='contained' onClick={() => navigateFirst("/Contact")}>
+                <Button style={{right:'30vw', position:'absolute', backgroundColor:'#01579B', marginTop:'0.5vh'}}
+                variant='contained' onClick={() => navigateBar("/Contact")}>
                     CONTACT
                 </Button>
-                <Typography style={{top:19.5, right:'1vw', position:'absolute', color:'black'}} >
+                <Button style={{ right:'12vw', position:'absolute', backgroundColor:'#9e9e9e', marginTop:'0.5vh'}}
+                variant='contained' onClick={() => navigateBar("/")}>
+                  
+                    <LogoutIcon style={{color:'black'}}/>
+                </Button>
+                <Typography style={{ right:'1vw', position:'absolute', color:'black', marginTop:'0.5vh'}} >
                   Bine ai venit, Adina!
                 </Typography>
             </Toolbar>
