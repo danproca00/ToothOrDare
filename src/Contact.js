@@ -3,17 +3,15 @@ import { blue, blueGrey } from '@mui/material/colors';
 import {useEffect, useState} from 'react';
 import imageBack from './imag/Background2.jpeg'
 import Map from './Map';
-import pin from'./imag/pin.png';
-import {Marker} from 'react-map-gl';
 import Navbar from './Navbar';
+
 
 function Contact() {
     return(
         <div style={{ backgroundColor:'#8aecff', backgroundRepeat:'no-repeat', backgroundSize:'cover' , height:'100vh',  backgroundPosition:'center', width:'100vw'}}>
             <Navbar/>
             <div style={{width:100, height:'40vh'}}>
-                <Map >
-                </Map>
+                <Map/>
             </div>
             <div style={{width:'80vw', height:'44vh', backgroundColor:'white', marginTop:'3vh',  marginLeft:'11vw'}}>
                 <div style={{justifyContent:'center', display:'flex'}}>
