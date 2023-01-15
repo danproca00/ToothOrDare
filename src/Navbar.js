@@ -45,7 +45,7 @@ import { emphasize } from '@mui/material';
                     CONTACT
                 </Button>
                 <Button style={{ right:'17vw', position:'absolute', backgroundColor:'#9e9e9e', marginTop:'0.5vh'}}
-                variant='contained' onClick={() => navigateBar("/Log")}>
+                variant='contained' onClick={() => navigateBar("/")}>
                   
                     <LogoutIcon style={{color:'black'}}/>
                 </Button>

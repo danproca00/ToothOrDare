@@ -19,14 +19,14 @@ export default function Navbar2() {
           <IconButton
             size="large"
             edge="start"
-            color="inherit"
+            style={{color:"black"}}
             aria-label="menu"
             sx={{ mr: 2 }}
           >
             
-          </IconButton>
+          </IconButton >
         
-          <Button style={{color:"black"}} 
+          <Button style={{color:"white", backgroundColor:'black', marginLeft:'80vw'}} 
           onClick={() => navigateNav2("/Log")}
           >Login</Button>
         </Toolbar>

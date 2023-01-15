@@ -13,31 +13,31 @@ import { useEffect } from 'react';
 
 function PagFirst(props) {
   const{emailLog} =props;
-  const images = [  photoPag,  poza3,  poza6, poza5];
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [intervalId, setIntervalId] = useState(null);
+  // const images = [  photoPag,  poza3,  poza6, poza5];
+  // const [currentIndex, setCurrentIndex] = useState(0);
+  // const [intervalId, setIntervalId] = useState(null);
 
-  useEffect(() => {
-    setIntervalId(setInterval(changeBackground, 100000));
-    return () => clearInterval(intervalId);
-  }, []);
+  // useEffect(() => {
+  //   setIntervalId(setInterval(changeBackground, 500));
+  //   return () => clearInterval(intervalId);
+  // }, []);
 
-  function changeBackground() {
-    setTimeout(() => {
-      setCurrentIndex((currentIndex + 1) % images.length);
-      changeBackground();
-    }, 10000);
-  }
+  // function changeBackground() {
+  //   setTimeout(() => {
+  //     setCurrentIndex((currentIndex + 1) % images.length);
+  //     changeBackground();
+  //   }, 500);
+  // }
   
 
     return(
         
         
-        <div style={{ backgroundImage:`url(${images[currentIndex]})`, backgroundRepeat:'no-repeat', backgroundSize:'cover' ,width: '100vw', height: '100vh'}}>
+        <div style={{ backgroundImage:`url(${poza6})`, backgroundRepeat:'no-repeat', backgroundSize:'cover' ,width: '100vw', height: '100vh'}}>
 
           <Navbar2/>
-            <div style={{height:'10vh', width:'100vw',  marginTop:'10vh', backgroundColor:'#96ECFC'}}>
-            <Typography style={{fontSize:'4vw', marginLeft:'13vw'}}>
+            <div style={{height:'10vh', width:'100vw',  marginTop:'10vh'}}>
+            <Typography style={{fontSize:'4vw', marginLeft:'16vw', fontFamily:'cursive'}}>
                 Bine ati venit la Clinica ToothOrDare🦷!
             </Typography>
 

@@ -4,7 +4,7 @@ import Navbar from './Navbar';
 function Programari(props){
     const {emailLog}=props;
     return(
-        <div>
+        <div style={{height:'100vh', width:'100vw'}}>
             <Navbar emailLog={emailLog}/>
             <Typography>
                 Aici va fi pagina cu programari a fiecarui doctor

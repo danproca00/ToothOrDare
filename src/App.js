@@ -15,6 +15,7 @@ import LogIn from './LogIn';
 import SignUp from './SignUp';
 import Programari from './Programari';
 import PagFirst from './PagFirst';
+import Statistici from './Statistici';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { LineAxisOutlined } from '@mui/icons-material';
 import axios from 'axios';
@@ -46,6 +47,7 @@ function App() {
             <Route path="/First" element={<FirstPage emailLog={emailLog}/>} />
             <Route path="/Form" element={<Form emailLog={emailLog} />} />
             <Route path="/Prog" element={<Programari emailLog={emailLog} />} />
+            <Route path="/Sta" element={<Statistici emailLog={emailLog} />} />
             <Route path="/Contact" element={<Contact emailLog={emailLog}/>}/>
             <Route path="/Price" element={<Price emailLog={emailLog}/>}/>
             <Route path="/Doctor" element={<Doctor emailLog={emailLog}/>}/>

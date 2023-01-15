@@ -48,7 +48,7 @@ function FirstPage(props){
             {emailLog === 'mircea.popescu@yahoo.com' ? 
                 <Button 
                     style={{backgroundColor:'green'}}
-                    variant='contained' onClick={() => navigateFirst("/Prog")}
+                    variant='contained' onClick={() => navigateFirst("/Sta")}
                 >
                     <DomainVerificationIcon/>
                     Statistici!
