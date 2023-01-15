@@ -62,7 +62,7 @@ const specializare =[
     let params = new FormData()
     params.append('nume_prenume', namechange);
     params.append('varsta', date);
-    params.append('email', emailF);
+    params.append('email', emailLog);
     params.append('proced', procedura);
     params.append('data', document.getElementById('datetime').value);
     params.append('doctor',doctor);
@@ -137,8 +137,8 @@ const specializare =[
                                     value={emailLog}
                                     multiline
                                     variant="filled"
-                                    onChange={(e)=>{setEmailF(e.target.value)
-                                    console.log(e.target.value)}}
+                                    // onChange={(e)=>{setEmailF(value)
+                                    // console.log(e.target.value)}}
                                     
                                     />
                                 </Box>

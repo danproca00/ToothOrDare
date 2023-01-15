@@ -79,7 +79,7 @@ const tipOm = [
           alert("Adresa de email este deja inregistrata, te rugam sa alegi alta adresa de email sau sa te autentifici.");
         } 
         else{
-          navigateSign('/')
+          navigateSign('/Log')
           Sign()
         }
         setEmailExists(response.data.exists)

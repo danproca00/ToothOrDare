@@ -18,16 +18,15 @@ import { useEffect } from "react";
 function FirstPage(props){
     const navigateFirst = useNavigate();
     const {emailLog}=props;
-    const[tipShow, setTipShow]=React.useState('')
-    useEffect((e) => {
+    const[tipShow, setTipShow]=React.useState([])
+    useEffect(() => {
         let params = new FormData()
         params.append('emailLog', emailLog);
         axios.post("http://localhost:8080/php/get_tip.php", params).then((response) => {
           setTipShow(response.data)
-          console.log(response.data)
           console.log(tipShow)
       })
-      });
+      },[]);
 
     return(
         
@@ -46,13 +45,13 @@ function FirstPage(props){
             
             <div style={{left:'3vw', position:'absolute', top:'15vh'}}>
             
-            {tipShow === 'Doctor' ? 
+            {emailLog === 'mircea.popescu@yahoo.com' ? 
                 <Button 
                     style={{backgroundColor:'green'}}
                     variant='contained' onClick={() => navigateFirst("/Prog")}
                 >
                     <DomainVerificationIcon/>
-                    Programari!
+                    Statistici!
                 </Button>
             : null}
 

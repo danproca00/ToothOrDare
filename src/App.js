@@ -14,6 +14,7 @@ import AboutUs from './AboutUs';
 import LogIn from './LogIn';
 import SignUp from './SignUp';
 import Programari from './Programari';
+import PagFirst from './PagFirst';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { LineAxisOutlined } from '@mui/icons-material';
 import axios from 'axios';
@@ -39,8 +40,8 @@ function App() {
     <div >
           
           <Routes>
-            
-            <Route path="/" element={<LogIn emailLog={emailLog} setEmailLog={setEmailLog}/>}/>
+            <Route path="/" element={<PagFirst emailLog={emailLog} />} />
+            <Route path="/Log" element={<LogIn emailLog={emailLog} setEmailLog={setEmailLog}/>}/>
             <Route path="/SignUp" element={<SignUp nume={nume} setNume={setNume} parolaS={parolaS} setParolaS={setParolaS} email={email} setEmailS={setEmailS} emailExists={emailExists} setEmailExists={setEmailExists} tip={tip} setTip={setTip}/>} />
             <Route path="/First" element={<FirstPage emailLog={emailLog}/>} />
             <Route path="/Form" element={<Form emailLog={emailLog} />} />
