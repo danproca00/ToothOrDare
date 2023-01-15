@@ -5,19 +5,34 @@ import VaccinesIcon from '@mui/icons-material/Vaccines';
 import DescriptionIcon from '@mui/icons-material/Description';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import NoteAltIcon from '@mui/icons-material/NoteAlt';
+import DomainVerificationIcon from '@mui/icons-material/DomainVerification';
 import Navbar from './Navbar';
 import Form from "./Form";
 import Doctor from "./Doctor";
 import Details from "./Details";
 import {Routes, Route, useNavigate} from 'react-router-dom';
+import axios from "axios";
+import { useEffect } from "react";
 
 
 function FirstPage(props){
     const navigateFirst = useNavigate();
+    const {emailLog}=props;
+    const[tipShow, setTipShow]=React.useState('')
+    useEffect((e) => {
+        let params = new FormData()
+        params.append('emailLog', emailLog);
+        axios.post("http://localhost:8080/php/get_tip.php", params).then((response) => {
+          setTipShow(response.data)
+          console.log(response.data)
+          console.log(tipShow)
+      })
+      });
+
     return(
         
         <div style={{ backgroundImage: `url(${imageBack})`, backgroundRepeat:'no-repeat', backgroundSize:'cover' , height:'100vh',  backgroundPosition:'center'}}>
-            <Navbar/>
+            <Navbar emailLog={emailLog} />
             <div style={{right:'3vw', position:'absolute', top:'15vh'}}>
             
                 <Button className="button"
@@ -27,6 +42,20 @@ function FirstPage(props){
                     PROGRAMEAZA-TE ACUM!
                 </Button>
                 
+            </div>
+            
+            <div style={{left:'3vw', position:'absolute', top:'15vh'}}>
+            
+            {tipShow === 'Doctor' ? 
+                <Button 
+                    style={{backgroundColor:'green'}}
+                    variant='contained' onClick={() => navigateFirst("/Prog")}
+                >
+                    <DomainVerificationIcon/>
+                    Programari!
+                </Button>
+            : null}
+
             </div>
             <div style={{justifyContent:'space-between', display:'flex', flexDirection:'row'}}>
                 <div style={{backgroundColor:'#96ECFC', height:'35vh', width:'20vw',justifyContent:'space-between',position:'absolute', bottom:'3vh',marginLeft:'10vw', borderRadius: 4, borderStyle: 'solid', borderColor:'#01579B', borderWidth:'0.2vw'}}>

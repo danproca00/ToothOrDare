@@ -6,10 +6,11 @@ import Navbar from './Navbar';
 
 
 
-function AboutUs() {
+function AboutUs(props) {
+  const{emailLog} =props;
     return(
         <div>
-        <Navbar />
+        <Navbar emailLog={emailLog} />
         <Slider />
         <div style={{ width: '80vw', height: '34vh', backgroundColor: '#8aecff', marginTop: '3vh', marginLeft: '11vw', borderStyle: 'solid', borderColor:'#01579B',borderWidth:'0.2vw'}}>
           <div style={{ justifyContent: 'center', display: 'flex' }}>

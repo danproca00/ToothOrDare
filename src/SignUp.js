@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState }from 'react';
 import Avatar from '@mui/material/Avatar';
 import AccessibilityNewIcon from '@mui/icons-material/AccessibilityNew';
 import Button from '@mui/material/Button';
@@ -15,10 +15,27 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import signphoto from './imag/LogPhoto.jpeg'
 import {Routes, Route, useNavigate} from 'react-router-dom';
+import axios from 'axios';
+import { PartyMode } from '@mui/icons-material';
+import Autocomplete from '@mui/material/Autocomplete';
 
 const theme = createTheme();
 
- function SignUp() {
+ function SignUp(props) {
+  const navigateSign = useNavigate();
+  // const [nume, setNume]= React.useState('');
+  // const [parolaS, setParolaS] =  React.useState('');
+  // const[email, setEmailS] =  React.useState('');
+  // const[emailExists, setEmailExists] =  React.useState(false)
+const {nume, setNume, parolaS, setParolaS, email, setEmailS, emailExists, setEmailExists, tip, setTip}=props;
+const handleTip = (e, value) => {
+  console.log(value)
+  setTip(value);
+}
+const tipOm = [
+  { label: 'Doctor' },
+  {label: 'Pacient'}
+  ]
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -27,7 +44,52 @@ const theme = createTheme();
       password: data.get('password'),
     });
   };
-  const navigateSign = useNavigate();
+
+  function validateEmail(emailS) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(emailS).toLowerCase());
+  }
+
+  function handleClickNume() {
+    if (nume === ""||email === "" || !validateEmail(email)||parolaS === "") {
+      alert("Toate campurile sunt obligatorii, iar adresa de email trebuie sa fie valida!");
+    } 
+    else {
+      checkEmailExists()
+    }
+    
+  }
+
+  
+  const Sign = () => {
+    const params = new FormData();
+    params.append('email', email);
+    params.append('parolaS', parolaS);
+    params.append('nume', nume);
+    params.append('tip', tip);
+    axios.post("http://localhost:8080/php/sign_up.php", params).then((response) => {
+        
+      console.log(response.data);
+    });
+  }
+  async function checkEmailExists() {
+    try {
+      axios.get(`http://localhost:8080/php/check_email.php?email=${email}`).then((response => {
+        if (response.data.exists===true) {
+          alert("Adresa de email este deja inregistrata, te rugam sa alegi alta adresa de email sau sa te autentifici.");
+        } 
+        else{
+          navigateSign('/')
+          Sign()
+        }
+        setEmailExists(response.data.exists)
+        console.log(response.data.exists)
+      }));
+     
+    } catch (error) {
+      console.error(error);
+    }
+  }
   return (
 
     <div style={{height:'92vh',width:'100vw',backgroundImage: `url(${signphoto})`, backgroundRepeat:'no-repeat', backgroundSize:'600px'}}>
@@ -59,6 +121,9 @@ const theme = createTheme();
                   id="firstName"
                   label="Nume și Prenume"
                   autoFocus
+                  onChange={(e)=>setNume(e.target.value)}
+                  
+                  
                 />
               </Grid>
 
@@ -70,6 +135,7 @@ const theme = createTheme();
                   label="Adresa de email"
                   name="email"
                   autoComplete="email"
+                  onChange={(e)=>setEmailS(e.target.value)}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -81,8 +147,19 @@ const theme = createTheme();
                   type="password"
                   id="password"
                   autoComplete="new-password"
+                  onChange={(e)=>setParolaS(e.target.value)}
                 />
               </Grid>
+              <Grid item xs={12}>
+                  <Autocomplete
+                    size="small"
+                    disableCloseOnSelect={true}
+                    onChange={handleTip}
+                    options={tipOm.map((tip) => tip.label)}
+                    renderInput={params => (<TextField {...params} variant="outlined" label="Tip"/>)}
+                    />
+              </Grid>
+
               
             </Grid>
             <Button
@@ -90,7 +167,13 @@ const theme = createTheme();
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              onClick={() => navigateSign("/")}
+              onClick={(e) => {
+                handleClickNume()
+              
+              // handleClickNume()
+              // handleClickAdresa()
+              // handleClickParola()
+            }}
             >
               Sign Up
             </Button>

@@ -11,11 +11,23 @@ import * as React from 'react';
     import {Routes, Route, useNavigate} from 'react-router-dom';
     import HomeIcon from '@mui/icons-material/Home';
     import LogoutIcon from '@mui/icons-material/Logout';
-
-
+    import axios from 'axios';
+    import { useEffect } from 'react';
+import { emphasize } from '@mui/material';
     
-  function CustomAppBar() {
+  function CustomAppBar(props) {
     const navigateBar = useNavigate();
+    const[name, setName] = React.useState([]);
+    const{emailLog} =props;
+    console.log(emailLog)
+    useEffect((e) => {
+      let params = new FormData()
+    params.append('emailLog', emailLog);
+      axios.post("http://localhost:8080/php/get_name.php", params).then((response) => {
+        setName(response.data)
+        console.log(response.data)
+    })
+    });
       return (
         <Box style={{ width:'100vw', height:'8vh'}}>
           <AppBar position="static">
@@ -32,13 +44,13 @@ import * as React from 'react';
                 variant='contained' onClick={() => navigateBar("/Contact")}>
                     CONTACT
                 </Button>
-                <Button style={{ right:'12vw', position:'absolute', backgroundColor:'#9e9e9e', marginTop:'0.5vh'}}
+                <Button style={{ right:'17vw', position:'absolute', backgroundColor:'#9e9e9e', marginTop:'0.5vh'}}
                 variant='contained' onClick={() => navigateBar("/")}>
                   
                     <LogoutIcon style={{color:'black'}}/>
                 </Button>
                 <Typography style={{ right:'1vw', position:'absolute', color:'black', marginTop:'0.5vh'}} >
-                  Bine ai venit, Adina!
+                  Bine ai venit, {name}!
                 </Typography>
             </Toolbar>
           </AppBar>

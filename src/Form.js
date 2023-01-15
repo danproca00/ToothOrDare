@@ -21,13 +21,14 @@ function Form(props){
     const[total,setTotal]=React.useState('');
     const[namechange, setNameChange] = React.useState('');
     const[date,setDate]=React.useState('');
-    const[email, setEmail]= React.useState('');
+    const[emailF, setEmailF]= React.useState('');
     const[procedura, setProcedura]= React.useState('');
     const[doctor, setDoctor]= React.useState('');
     const current = new Date();
     const todaydate = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
     const [dateWithNoInitialValue,setDateWithNoInitialValue ]= React.useState(null);
-    
+    const {emailLog}=props;
+    const [nameUser, setNameUser]= React.useState('')
     // const [value, setValue] = React.useState(dayjs(todaydate));
     const handleProced = (e, value) => {
         console.log(value)
@@ -55,25 +56,26 @@ const specializare =[
     {label:'Albire profesională'},
     {label:'Pachet'}
         ]
-    
+
 
   const Programare = () => {
     let params = new FormData()
-    params.append('nume_prenume', namechange)
-    params.append('varsta', date)
-    params.append('email', email)
-    params.append('proced', procedura)
-    params.append('data', document.getElementById('datetime').value)
-    params.append('doctor',doctor)
+    params.append('nume_prenume', namechange);
+    params.append('varsta', date);
+    params.append('email', emailF);
+    params.append('proced', procedura);
+    params.append('data', document.getElementById('datetime').value);
+    params.append('doctor',doctor);
     axios.post("http://localhost:8080/php/programare.php", params).then((response) => {
-        setTotal(response.data)
+        alert("PROGRAMAREA A FOST EFECTUATA CU SUCCES!")
         console.log(response.data)
     })
   }
+
   
     return(
         <div style={{height:'100vh',width:'100vw',backgroundImage: `url(${ProgrPhoto})`, backgroundRepeat:'no-repeat', backgroundSize:'cover'}}>
-            <Navbar/>
+            <Navbar emailLog={emailLog}/>
             <div style={{justifyContent:'center',display:'flex',}}>
                 <div style={{height:'90vh',width:'40vw',backgroundColor:'white', marginTop:'1.5vh'}}>
                     <div style={{justifyContent:'center', display:'flex', color:'black', backgroundColor:'#80deea'}}>
@@ -85,7 +87,7 @@ const specializare =[
                                 <Box
                                     component="form"
                                     style={{height:'20vh'}}
-                                    Validate
+                                   noValidate
                                     autoComplete="off"
                                 >
                                     <TextField 
@@ -102,7 +104,7 @@ const specializare =[
                                 <Box
                                     component="form"
                                     style={{height:'20vh'}}
-                                    Validate
+                                    noValidate
                                     autoComplete="off"
                                 >
                                     <TextField
@@ -132,9 +134,10 @@ const specializare =[
                                     <TextField 
                                     id="filled-textarea2"
                                     label="Adresa de email"
+                                    value={emailLog}
                                     multiline
                                     variant="filled"
-                                    onChange={(e)=>{setEmail(e.target.value)
+                                    onChange={(e)=>{setEmailF(e.target.value)
                                     console.log(e.target.value)}}
                                     
                                     />
@@ -167,7 +170,7 @@ const specializare =[
                                         <DateTimePicker
                                             style={{justifyContent:'center', display:'flex'}}
                                             sx={{width:197}}
-                                            inputFormat="DD-MM-YYYY HH:mm"
+                                            inputFormat="YYYY-MM-DD HH:mm"
                                             ampm={false}
                                             label="Data si ora"
                                             value={dateWithNoInitialValue}
@@ -201,7 +204,7 @@ const specializare =[
                     <div style={{marginTop:'9vw', justifyContent:'center', display:'flex' }}>
                         <Button style={{backgroundColor:'#01579B', color:'white'}}
                         onClick={(e)=>{
-                            Programare(e.target.innerText)
+                            Programare()
                         }
                         }>
                             PROGRAMEAZA-MA

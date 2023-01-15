@@ -7,10 +7,11 @@ import Navbar from './Navbar';
 
 
 function Details(props) {
+    const{emailLog} =props;
 
     return(
         <div>
-            <Navbar/>
+            <Navbar emailLog={emailLog}/>
         </div>
     ) 
 }

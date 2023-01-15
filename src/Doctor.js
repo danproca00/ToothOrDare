@@ -9,10 +9,12 @@ import Navbar from './Navbar';
 
 
 
-function Doctor() {
+function Doctor(props) {
+    const{emailLog} =props;
+
     return(
         <div style={{ backgroundImage: `url(${BackgroundFirstPage})`, backgroundRepeat:'no-repeat', backgroundSize:'cover' , height:'100vh',  backgroundPosition:'center'}}>
-            <Navbar/>
+            <Navbar emailLog={emailLog}/>
             <div style={{width:'100vw', height:'92vh'}}>
                 <div style={{width:'97vw', height:'46vh', display:'flex', flexDirection:'row'}}>
                     <div style={{backgroundColor:'white', height:'37vh', width:'30vw',justifyContent:'space-between', marginLeft:'5vw', marginTop:'5vh', borderRadius: 4, borderStyle: 'solid', borderColor:'#01579B'}}>
