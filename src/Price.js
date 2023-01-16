@@ -8,10 +8,10 @@ import Navbar from './Navbar';
 
 
 function Price(props) {
-    const{emailLog} =props;
+    const{emailLog, name} =props;
     return(
         <div style={{ backgroundColor:'#d8f9ff', backgroundRepeat:'no-repeat', backgroundSize:'cover' , height:'100vh',  backgroundPosition:'center'}}>
-            <Navbar emailLog={emailLog}/>
+            <Navbar emailLog={emailLog} name={name}/>
             <div style={{width:'100vw', height:'100vh'}}>
                 <div style={{width:'97vw', height:'50vh', display:'flex', flexDirection:'row'}}>
                     <div style={{backgroundColor:'#01579B', height:'30vh', width:'30vw',justifyContent:'space-between', marginLeft:'3vw', marginTop:'9vh', borderRadius: 4}}>

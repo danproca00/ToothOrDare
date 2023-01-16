@@ -17,17 +17,16 @@ import { emphasize } from '@mui/material';
     
   function CustomAppBar(props) {
     const navigateBar = useNavigate();
-    const[name, setName] = React.useState([]);
-    const{emailLog} =props;
+    const{emailLog, name, setName} =props;
     console.log(emailLog)
-    useEffect((e) => {
-      let params = new FormData()
-    params.append('emailLog', emailLog);
-      axios.post("http://localhost:8080/php/get_name.php", params).then((response) => {
-        setName(response.data)
-        console.log(response.data)
-    })
-    });
+    // useEffect((e) => {
+    //   let params = new FormData()
+    //   params.append('emailLog', emailLog);
+    //   axios.post("http://localhost:8080/php/get_name.php", params).then((response) => {
+    //     setName(response.data)
+    //     console.log(response.data)
+    // })
+    // });
       return (
         <Box style={{ width:'100vw', height:'8vh'}}>
           <AppBar position="static">

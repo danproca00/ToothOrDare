@@ -6,7 +6,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 function Statistici(props){
-    const {emailLog}=props;
+    const {emailLog, name}=props;
     const data = [
         {
           name: 'Ianuarie',
@@ -84,7 +84,7 @@ function Statistici(props){
       
     return(
         <div style={{height:'100vh', width:'100vw',backgroundImage: `url(${stat})`, backgroundRepeat:'no-repeat', backgroundSize:'cover'}}>
-            <Navbar emailLog={emailLog}/>
+            <Navbar emailLog={emailLog} name={name}/>
             <div style={{justifyContent:'center', display:'flex',height:'50vh', width:'50vw', marginTop:'3vh', marginLeft:'23vw'}}>
                
                 <div style={{height:'50vh', width:'80vw'}}>

@@ -7,10 +7,10 @@ import Navbar from './Navbar';
 
 
 function Contact(props) {
-    const{emailLog} =props;
+    const{emailLog, name} =props;
     return(
         <div style={{ backgroundColor:'#8aecff', backgroundRepeat:'no-repeat', backgroundSize:'cover' , height:'100vh',  backgroundPosition:'center', width:'100vw'}}>
-            <Navbar emailLog={emailLog} />
+            <Navbar emailLog={emailLog} name={name}/>
             <div style={{width:100, height:'40vh'}}>
                 <Map/>
             </div>

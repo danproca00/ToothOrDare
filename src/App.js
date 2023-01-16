@@ -33,8 +33,16 @@ function App() {
   const[emailExists, setEmailExists] =  React.useState(false)
   const [emailLog, setEmailLog]= React.useState('');
   const [tip, setTip]= React.useState('');
+  const[name, setName] = React.useState('');
 
-
+  useEffect((e) => {
+    let params = new FormData()
+    params.append('emailLog', emailLog);
+    axios.post("http://localhost:8080/php/get_name.php", params).then((response) => {
+      setName(response.data[0])
+      console.log(response.data)
+  })
+  });
 
   return (
 
@@ -42,17 +50,17 @@ function App() {
           
           <Routes>
             <Route path="/" element={<PagFirst emailLog={emailLog} />} />
-            <Route path="/Log" element={<LogIn emailLog={emailLog} setEmailLog={setEmailLog}/>}/>
+            <Route path="/Log" element={<LogIn emailLog={emailLog} setEmailLog={setEmailLog} name={name}/>}/>
             <Route path="/SignUp" element={<SignUp nume={nume} setNume={setNume} parolaS={parolaS} setParolaS={setParolaS} email={email} setEmailS={setEmailS} emailExists={emailExists} setEmailExists={setEmailExists} tip={tip} setTip={setTip}/>} />
-            <Route path="/First" element={<FirstPage emailLog={emailLog}/>} />
-            <Route path="/Form" element={<Form emailLog={emailLog} />} />
-            <Route path="/Prog" element={<Programari emailLog={emailLog} />} />
-            <Route path="/Sta" element={<Statistici emailLog={emailLog} />} />
-            <Route path="/Contact" element={<Contact emailLog={emailLog}/>}/>
-            <Route path="/Price" element={<Price emailLog={emailLog}/>}/>
-            <Route path="/Doctor" element={<Doctor emailLog={emailLog}/>}/>
-            <Route path="/Details" element={<Details emailLog={emailLog}/>}/>
-            <Route path="/AboutUs" element={<AboutUs emailLog={emailLog}/>}/>
+            <Route path="/First" element={<FirstPage emailLog={emailLog} name={name} setName={setName}/>} />
+            <Route path="/Form" element={<Form emailLog={emailLog} name={name} />} />
+            <Route path="/Prog" element={<Programari emailLog={emailLog} name={name}/>} />
+            <Route path="/Sta" element={<Statistici emailLog={emailLog} name={name}/>} />
+            <Route path="/Contact" element={<Contact emailLog={emailLog} name={name}/>}/>
+            <Route path="/Price" element={<Price emailLog={emailLog} name={name}/>}/>
+            <Route path="/Doctor" element={<Doctor emailLog={emailLog} name={name}/>}/>
+            <Route path="/Details" element={<Details emailLog={emailLog} name={name}/>}/>
+            <Route path="/AboutUs" element={<AboutUs emailLog={emailLog} name={name}/>}/>
           </Routes>
     </div>
    

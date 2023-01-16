@@ -3,6 +3,7 @@ import React from "react";
 import imageBack from './imag/altapoza.jpeg'
 import VaccinesIcon from '@mui/icons-material/Vaccines';
 import DescriptionIcon from '@mui/icons-material/Description';
+import BarChartIcon from '@mui/icons-material/BarChart';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import NoteAltIcon from '@mui/icons-material/NoteAlt';
 import DomainVerificationIcon from '@mui/icons-material/DomainVerification';
@@ -17,13 +18,13 @@ import { useEffect } from "react";
 
 function FirstPage(props){
     const navigateFirst = useNavigate();
-    const {emailLog}=props;
-    const[tipShow, setTipShow]=React.useState([])
+    const {emailLog, name, setName}=props;
+    const[tipShow, setTipShow]=React.useState('')
     useEffect(() => {
         let params = new FormData()
         params.append('emailLog', emailLog);
         axios.post("http://localhost:8080/php/get_tip.php", params).then((response) => {
-          setTipShow(response.data)
+          setTipShow(response.data[0])
           console.log(tipShow)
       })
       },[]);
@@ -31,7 +32,7 @@ function FirstPage(props){
     return(
         
         <div style={{ backgroundImage: `url(${imageBack})`, backgroundRepeat:'no-repeat', backgroundSize:'cover' , height:'100vh',  backgroundPosition:'center'}}>
-            <Navbar emailLog={emailLog} />
+            <Navbar emailLog={emailLog} name={name} setName={setName} />
             <div style={{right:'3vw', position:'absolute', top:'15vh'}}>
             
                 <Button className="button"
@@ -47,13 +48,23 @@ function FirstPage(props){
             
             {emailLog === 'mircea.popescu@yahoo.com' ? 
                 <Button 
-                    style={{backgroundColor:'green'}}
+                    style={{backgroundColor:'#01579B'}}
                     variant='contained' onClick={() => navigateFirst("/Sta")}
                 >
-                    <DomainVerificationIcon/>
+                    <BarChartIcon/>
                     Statistici!
                 </Button>
             : null}
+            {tipShow==='Doctor' ?
+                <Button 
+                    style={{backgroundColor:'green'}}
+                    variant='contained' onClick={() => navigateFirst("/Prog")}
+                >
+                    <DomainVerificationIcon/>
+                        Programari
+                </Button>
+            :null
+            }
 
             </div>
             <div style={{justifyContent:'space-between', display:'flex', flexDirection:'row'}}>

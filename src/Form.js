@@ -15,6 +15,7 @@ import axios from "axios";
 import Navbar from './Navbar';
 import Autocomplete from '@mui/material/Autocomplete';
 import { Grade } from "@mui/icons-material";
+import dataSlider from "./dataSlider";
 
 
 function Form(props){
@@ -24,11 +25,13 @@ function Form(props){
     const[emailF, setEmailF]= React.useState('');
     const[procedura, setProcedura]= React.useState('');
     const[doctor, setDoctor]= React.useState('');
+    const[dataProg, setDataProg] = React.useState('');
     const current = new Date();
     const todaydate = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
     const [dateWithNoInitialValue,setDateWithNoInitialValue ]= React.useState(null);
-    const {emailLog}=props;
-    const [nameUser, setNameUser]= React.useState('')
+    const {emailLog, name}=props;
+    const [nameUser, setNameUser]= React.useState('');
+    const[progExists, setProgExists] =  React.useState(false)
     // const [value, setValue] = React.useState(dayjs(todaydate));
     const handleProced = (e, value) => {
         console.log(value)
@@ -40,10 +43,10 @@ function Form(props){
         setDoctor(value);
     }
     const doctors = [
-        { label: 'Dr. Tatiana Popescu' },
-        {label: 'Dr. Denisa Golban'},
-        {label:'Dr. Claudiu Jucu'},
-        {label:'Dr. Adelin Stoica'}
+        { label: 'Tatiana Popescu' },
+        {label: 'Denisa Golban'},
+        {label:'Claudiu Jucu'},
+        {label:'Adelin Stoica'}
         ]
 
 const specializare =[
@@ -64,18 +67,34 @@ const specializare =[
     params.append('varsta', date);
     params.append('email', emailLog);
     params.append('proced', procedura);
-    params.append('data', document.getElementById('datetime').value);
+    params.append('data',dataProg);
     params.append('doctor',doctor);
     axios.post("http://localhost:8080/php/programare.php", params).then((response) => {
         alert("PROGRAMAREA A FOST EFECTUATA CU SUCCES!")
         console.log(response.data)
     })
   }
-
+  async function checkProgExists() {
+    try {
+      axios.get(`http://localhost:8080/php/check_email_prog.php?email=${emailLog}`).then((response => {
+        if (response.data.exists===true) {
+          alert("Aveti deja o programare!");
+        } 
+        else{
+          Programare()
+        }
+        setProgExists(response.data.exists)
+        console.log(response.data.exists)
+      }));
+     
+    } catch (error) {
+      console.error(error);
+    }
+  }
   
     return(
         <div style={{height:'100vh',width:'100vw',backgroundImage: `url(${ProgrPhoto})`, backgroundRepeat:'no-repeat', backgroundSize:'cover'}}>
-            <Navbar emailLog={emailLog}/>
+            <Navbar emailLog={emailLog} name={name}/>
             <div style={{justifyContent:'center',display:'flex',}}>
                 <div style={{height:'90vh',width:'40vw',backgroundColor:'white', marginTop:'1.5vh'}}>
                     <div style={{justifyContent:'center', display:'flex', color:'black', backgroundColor:'#80deea'}}>
@@ -175,7 +194,7 @@ const specializare =[
                                             label="Data si ora"
                                             value={dateWithNoInitialValue}
                                             onChange={(newValue)=>{setDateWithNoInitialValue(newValue)
-                                            console.log(document.getElementById("datetime").value)}}
+                                                setDataProg(document.getElementById('datetime').value)}}
                                             renderInput={(params) => <TextField {...params} id="datetime"/>}
                                         />
                                     </Stack>
@@ -204,7 +223,11 @@ const specializare =[
                     <div style={{marginTop:'9vw', justifyContent:'center', display:'flex' }}>
                         <Button style={{backgroundColor:'#01579B', color:'white'}}
                         onClick={(e)=>{
-                            Programare()
+                            setDataProg(document.getElementById('datetime').value)
+                            console.log(document.getElementById('datetime').value)
+                            console.log(dataProg)
+                            checkProgExists()
+                        
                         }
                         }>
                             PROGRAMEAZA-MA
