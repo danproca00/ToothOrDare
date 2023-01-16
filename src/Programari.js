@@ -38,12 +38,12 @@ function Programari(props) {
     return(
         <div style={{height:'100vh', width:'100vw', backgroundImage: `url(${pozaprog})`, backgroundRepeat:'no-repeat', backgroundSize:'cover'}}>
             <Navbar emailLog={emailLog} name={name}/>
-            <div style={{height:'50vh', width:'80vw',  marginTop:'5vh', marginLeft:'2vw', display:'flex', justifyContent:'space-between', flexDirection:'row'}}>
+            <div style={{height:'50vh', width:'80vw',  marginTop:'5vh',  display:'flex', marginLeft:'3vw', flexDirection:'row'}}>
             {programareDoc == [] ? 
                     alert('Nu aveti nicio programare')
             :
             programareDoc.map((prog)=>(
-                <Card sx={{ maxWidth: 364, maxHeight:600 }}>
+                <Card sx={{ maxWidth: 364, maxHeight:600, marginLeft:'2vw' }}>
                     <CardMedia
                         component="img"
                         alt="green iguana"
