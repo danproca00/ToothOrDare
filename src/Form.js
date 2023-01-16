@@ -63,7 +63,7 @@ const specializare =[
 
   const Programare = () => {
     let params = new FormData()
-    params.append('nume_prenume', namechange);
+    params.append('nume_prenume', name);
     params.append('varsta', date);
     params.append('email', emailLog);
     params.append('proced', procedura);
@@ -112,11 +112,12 @@ const specializare =[
                                     <TextField 
                                     id="filled-textarea1"
                                     label="Nume si Prenume"
+                                    value={name}
                                     multiline
                                     variant="filled"
-                                    onChange={(e)=>setNameChange(e.target.value)}
+                                    // onChange={(e)=>setNameChange(e.target.value)}
                                     />
-                                    {console.log(namechange)}
+                                    {/* {console.log(namechange)} */}
                                 </Box>
                             </div>
                             <div style={{justifyContent:'center', display:'flex', marginTop:50}}>
