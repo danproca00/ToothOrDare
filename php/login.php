@@ -1,12 +1,22 @@
 <?php
-include "./connectToDB.php"
-$adresa_email=$_POST['adresa_email'];
-$parola=$_POST['parola'];
+header('Access-Control-Allow-Origin: *');
 
+header('Access-Control-Allow-Methods: GET, POST');
 
+header("Access-Control-Allow-Headers: X-Requested-With");
+include "./connectToDB.php";
+$emailLog= $_POST['emailLog'];
+$parolaLog= $_POST['parolaLog'];
+$hashed_password = password_hash($parolaLog, PASSWORD_DEFAULT);
 
-$sql = "insert into LogIn(ID, EMAIL, PAROLA)
-values($adresa_email, $parola) " or die(nu a mers);
-echo(a mers);
+$sql = "INSERT INTO LOG_IN(EMAIL, PAROLA)
+VALUES ('$emailLog', '$parolaLog')";
+
+if ($dbh->query($sql) === TRUE) {
+  echo "New record created successfully";
+} else {
+  echo "Error: " . $sql ;
+}
 
 ?>
+
